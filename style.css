@@ -1,0 +1,341 @@
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    /* Fundo azul como a calça do Ash - tom médio/escuro de azul */
+    background-color: #2a52be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Padrão de bolinhas brancas discretas no fundo */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+/* Estilos da Pokédex */
+.pokedex {
+    background-color: #e71d1d; /* Vermelho clássico da Pokédex */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border: 8px solid #333; /* Borda escura */
+    position: relative;
+    animation: pulse 2s infinite alternate; /* Animação de pulsação */
+}
+
+/* Parte superior da Pokédex */
+.pokedex-top {
+    padding: 20px;
+    background-color: #e71d1d;
+    border-bottom: 5px solid #333;
+}
+
+/* Parte inferior da Pokédex */
+.pokedex-bottom {
+    padding: 20px;
+    background-color: #e71d1d;
+}
+
+/* Estilos para as luzes */
+.lights {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Luz grande (vermelha) */
+.big-light {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
+    border: 3px solid #000;
+    position: relative;
+}
+
+/* Efeito da luz grande */
+.big-light::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    animation: blink 3s infinite; /* Animação de piscar */
+}
+
+/* Container das luzes pequenas */
+.small-lights {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos base para todas as luzes pequenas */
+.red-light, .yellow-light, .green-light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+/* Luz vermelha */
+.red-light {
+    background-color: #ff0000;
+    animation: blink 1.5s infinite; /* Animação mais rápida */
+}
+
+/* Luz amarela */
+.yellow-light {
+    background-color: #ffff00;
+    animation: blink 2s infinite; /* Velocidade média */
+}
+
+/* Luz verde */
+.green-light {
+    background-color: #00ff00;
+    animation: blink 2.5s infinite; /* Animação mais lenta */
+}
+
+/* Estilos para a tela */
+.screen-container {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    border: 5px solid #000;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.screen {
+    background-color: #8bac0f; /* Verde clássico de tela de Game Boy */
+    border: 3px solid #306230;
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 200px;
+    color: #0f380f;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de scanline na tela */
+.screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(139, 172, 15, 0.3) 0%,
+        rgba(139, 172, 15, 0) 10%,
+        rgba(139, 172, 15, 0) 90%,
+        rgba(139, 172, 15, 0.3) 100%
+    );
+    pointer-events: none;
+}
+
+/* Estilo para a imagem do Pokémon */
+.screen img {
+    max-width: 120px;
+    margin-bottom: 10px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    animation: bounce 0.5s infinite alternate; /* Animação de bounce */
+}
+
+/* Estilos para os controles */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do input de texto */
+#inputNome {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid #333;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* Efeito quando o input está em foco */
+#inputNome:focus {
+    border-color: #ffcc00; /* Amarelo do Pikachu */
+    box-shadow: 0 0 10px #ffcc00;
+}
+
+/* Estilo do botão de busca */
+#btnBuscar {
+    background-color: #ffcc00; /* Amarelo do Pikachu */
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 3px solid #333;
+    transition: all 0.3s;
+}
+
+/* Efeitos de hover no botão */
+#btnBuscar:hover {
+    background-color: #ffdd33;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito quando o botão é clicado */
+#btnBuscar:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o joystick */
+.joystick {
+    display: flex;
+    justify-content: center;
+}
+
+.cross {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+/* Partes do joystick (cruz direcional) */
+.up, .down, .left, .right, .center {
+    position: absolute;
+    background-color: #333;
+}
+
+/* Centro do joystick */
+.center {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    background-color: #666;
+}
+
+/* Direcional para cima */
+.up {
+    width: 30px;
+    height: 15px;
+    border-radius: 10px 10px 0 0;
+    top: 0;
+    left: 25px;
+}
+
+/* Direcional para baixo */
+.down {
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 10px 10px;
+    bottom: 0;
+    left: 25px;
+}
+
+/* Direcional para esquerda */
+.left {
+    width: 15px;
+    height: 30px;
+    border-radius: 10px 0 0 10px;
+    left: 0;
+    top: 25px;
+}
+
+/* Direcional para direita */
+.right {
+    width: 15px;
+    height: 30px;
+    border-radius: 0 10px 10px 0;
+    right: 0;
+    top: 25px;
+}
+
+/* Estilos para as informações do Pokémon */
+#infoUsuario {
+    text-align: center;
+}
+
+/* Nome do Pokémon */
+.pokemon-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: #0f380f;
+}
+
+/* Container das habilidades */
+.pokemon-abilities {
+    margin-top: 10px;
+}
+
+/* Estilo de cada habilidade */
+.ability {
+    display: inline-block;
+    background-color: #306230;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mensagem de erro */
+.error-message {
+    color: #e71d1d;
+    font-weight: bold;
+}

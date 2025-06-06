@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Pokédex</title>
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Estrutura da Pokédex -->
+        <div class="pokedex">
+            <!-- Parte superior da Pokédex -->
+            <div class="pokedex-top">
+                <!-- Luzes indicadoras -->
+                <div class="lights">
+                    <div class="big-light"></div>
+                    <div class="small-lights">
+                        <div class="red-light"></div>
+                        <div class="yellow-light"></div>
+                        <div class="green-light"></div>
+                    </div>
+                </div>
+                <!-- Tela onde as informações do Pokémon aparecerão -->
+                <div class="screen-container">
+                    <div class="screen" id="pokemonScreen">
+                        <div id="infoUsuario">
+                            <p>Informe o nome de um Pokémon...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Parte inferior da Pokédex com controles -->
+            <div class="pokedex-bottom">
+                <div class="controls">
+                    <!-- Input para digitar o nome do Pokémon -->
+                    <input type="text" id="inputNome" placeholder="Digite o nome do Pokémon">
+                    <!-- Botão para acionar a busca -->
+                    <button id="btnBuscar">Buscar</button>
+                </div>
+                <!-- Joystick decorativo -->
+                <div class="joystick">
+                    <div class="cross">
+                        <div class="up"></div>
+                        <div class="down"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                        <div class="center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
